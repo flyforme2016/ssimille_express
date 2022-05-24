@@ -10,6 +10,7 @@ var s3Router = require('./routes/s3_router');
 var kakaoRouter = require('./routes/kakao_login_router');
 var profileRouter = require('./routes/profile_router');
 var spotifyRouter = require('./routes/spotify_router');
+var locationRouter = require('./routes/location_router');
 var app = express();
 
 // view engine setup
@@ -28,6 +29,7 @@ app.use('/s3', s3Router);
 app.use('/kakao/oauth', kakaoRouter);
 app.use('/spotify', spotifyRouter);
 app.use('/profile', profileRouter);
+app.use('/location', locationRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

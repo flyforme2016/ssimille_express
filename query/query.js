@@ -2,5 +2,5 @@ exports.insertProfileImg = 'INSERT INTO ssi_user (kakao_user_number, profile_ima
 exports.initUserTable = 'INSERT INTO ssi_user(kakao_user_number, nickname, profile_image_url, friend_count, post_count, song_count) VALUES(?, ?, ?, ?, ?, ?)'
 exports.initUserHashTagTable = 'INSERT INTO ssi_user_hash_tag(ssi_user_kakao_user_number) VALUES(?)'
 exports.selectUserProfile = 'SELECT a.nickname, a.profile_image_url, a.profile_music_uri, a.friend_count, a.post_count, a.song_count, b.tag1_cd, b.tag2_cd, b.tag3_cd, b.tag4_cd, b.tag5_cd FROM ssi_user AS a LEFT JOIN ssi_user_hash_tag AS b ON a.kakao_user_number = b.ssi_user_kakao_user_number WHERE a.kakao_user_number=?'
-exports.editUserProfile = 'UPDATE ssi_user SET nickname=?, profile_imgae_url=?, profile_music_uri=? WHERE kakao_user_number=?'
-exports.updateHashTag = 'UPDATE ssi_user_hash_tag SET tag1_cd=?, tag2_cd=?, tag3_cd=?, tag4_cd=?, tag5_cd=? WHERE ssi_user_kakao_user_number=?'
+exports.editUserProfile = 'UPDATE ssi_user AS a LEFT JOIN ssi_user_hash_tag AS b ON a.kakao_user_number = b.ssi_user_kakao_user_number SET a.nickname=?, a.profile_image_url=?, a.profile_music_uri=?, b.tag1_cd=?, b.tag2_cd=?, b.tag3_cd=?, b.tag4_cd=?, b.tag5_cd=? WHERE a.kakao_user_number=?'
+exports.updateUserLocation = 'UPDATE ssi_user SET location_depth1=?, location_depth2=?, location_depth3=? WHERE kakao_user_number=?'
