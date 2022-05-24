@@ -41,16 +41,13 @@ module.exports = {
     },
     selectUserProfile : async(...args) => {
         console.log('Enter selectUserProfile')
-        const query1 = args[0]
-        const query2 = args[1]
-        const value = args[2] //key = userKakaoNumber where문의 조건으로 사용
+        const query = args[0]
+        const value = args[1] //key = userKakaoNumber where문의 조건으로 사용
         const pool = await poolPromise
         const connection = await pool.getConnection()
         try {
-            const result1 = await connection.query(query1, value)
-            const result2 = await connection.query(query2, value)
-            const response = Object.assign({}, result1[0], result2[0])
-            return response;
+            const result = await connection.query(query, value)
+            return result;
         } catch (error) {
             console.log('Error selectUserProfile: ', error)
             connection.rollback()

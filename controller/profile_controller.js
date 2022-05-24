@@ -4,7 +4,7 @@ const myQurey = require('../query/query');
 exports.getMyProfile = async (req, res) => { //아직 nickname, profilemusic은 넘기지 않음
     try{ 
         console.log('Enter getMyProfile')
-        const result = await promiseMysql.selectUserProfile(myQurey.selectUserProfile, myQurey.selectUserHashTag, req.query.key)
+        const result = await promiseMysql.selectUserProfile(myQurey.selectUserProfile, req.query.key)
         console.log('result: ', result)
         res.json(result);
         
