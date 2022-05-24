@@ -1,0 +1,7 @@
+exports.insertProfileImg = 'INSERT INTO ssi_user (kakao_user_number, profile_image_url) VALUES(?,?)'
+exports.initUserTable = 'INSERT INTO ssi_user(kakao_user_number, nickname, profile_image_url, friend_count, post_count, song_count) VALUES(?, ?, ?, ?, ?, ?)'
+exports.initUserHashTagTable = 'INSERT INTO ssi_user_hash_tag(ssi_user_kakao_user_number) VALUES(?)'
+exports.selectUserProfile = 'SELECT nickname, profile_image_url, profile_music_uri, friend_count, post_count, song_count FROM ssi_user WHERE kakao_user_number=?'
+exports.selectUserHashTag = 'SELECT tag1_cd, tag2_cd, tag3_cd, tag4_cd, tag5_cd FROM ssi_user_hash_tag WHERE ssi_user_kakao_user_number=?'
+exports.editUserProfile = 'UPDATE ssi_user SET nickname=?, profile_imgae_url=?, profile_music_uri=? WHERE kakao_user_number=?'
+exports.updateHashTag = 'UPDATE ssi_user_hash_tag SET tag1_cd=?, tag2_cd=?, tag3_cd=?, tag4_cd=?, tag5_cd=? WHERE ssi_user_kakao_user_number=?'
