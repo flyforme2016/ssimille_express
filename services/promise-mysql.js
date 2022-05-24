@@ -44,7 +44,8 @@ module.exports = {
         const query = args[0]
         const value = args[1] //key = userKakaoNumber where문의 조건으로 사용
         const pool = await poolPromise
-        const connection = await pool.getConnection()   
+        const connection = await pool.getConnection()
+        //yyuukykuf
         try {
             const result = await connection.query(query, value)
             return result;
