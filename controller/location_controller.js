@@ -5,9 +5,9 @@ exports.updateUserLocation = async (req, res) => {
     try {
         console.log('Enter updateUserLocation')
         const data = [
-            req.body['params']['location_depth1'],
-            req.body['params']['location_depth2'],
-            req.body['params']['location_depth3'],
+            req.body['params']['locationDepth1'],
+            req.body['params']['locationDepth2'],
+            req.body['params']['locationDepth3'],
             req.body['params']['key'],
         ]
         await promiseMysql.updateUserLocation(myQurey.updateUserLocation, data)

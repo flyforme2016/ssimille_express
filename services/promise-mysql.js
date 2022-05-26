@@ -72,6 +72,7 @@ module.exports = {
             connection.release() //connection 반환
         }
     },
+    
     updateUserLocation : async(...args) => {
         console.log('Enter updateUserLocation')
         const query = args[0]
@@ -81,11 +82,40 @@ module.exports = {
         try{
             await connection.query(query, value)
         }catch (error) {
-            //pool connection이나 connection.query가 실패할 경우 진입
             console.log('Error updateUserLocation :', error)
-            connection.rollback() //쿼리 실패시 혹시 수행 된 부분 작업 이전으로 되돌리기
+            connection.rollback()
         } finally{
-            connection.release() //connection 반환
+            connection.release() 
+        }
+    },
+    selectTotalPost : async(...args) => {
+        console.log('Enter selectTotalPost')
+        const query = args[0]
+        const value = args[1]
+        const pool = await poolPromise
+        const connection = await pool.getConnection()
+        try{
+            await connection.query(query, value)
+        }catch (error) {
+            console.log('Error selectTotalPost :', error)
+            connection.rollback() 
+        } finally{
+            connection.release()
+        }
+    },
+    updateCurrentMusic : async(...args) => {
+        console.log('Enter updateCurrentMusic')
+        const query = args[0]
+        const value = args[1]
+        const pool = await poolPromise
+        const connection = await pool.getConnection()
+        try{
+            await connection.query(query, value)
+        }catch (error) {
+            console.log('Error updateCurrentMusic :', error)
+            connection.rollback() 
+        } finally{
+            connection.release()
         }
     }
 }

@@ -4,3 +4,5 @@ exports.initUserHashTagTable = 'INSERT INTO ssi_user_hash_tag(ssi_user_kakao_use
 exports.selectUserProfile = 'SELECT a.nickname, a.profile_image_url, a.profile_music_uri, a.friend_count, a.post_count, a.song_count, b.tag1_cd, b.tag2_cd, b.tag3_cd, b.tag4_cd, b.tag5_cd FROM ssi_user AS a LEFT JOIN ssi_user_hash_tag AS b ON a.kakao_user_number = b.ssi_user_kakao_user_number WHERE a.kakao_user_number=?'
 exports.editUserProfile = 'UPDATE ssi_user AS a LEFT JOIN ssi_user_hash_tag AS b ON a.kakao_user_number = b.ssi_user_kakao_user_number SET a.nickname=?, a.profile_image_url=?, a.profile_music_uri=?, b.tag1_cd=?, b.tag2_cd=?, b.tag3_cd=?, b.tag4_cd=?, b.tag5_cd=? WHERE a.kakao_user_number=?'
 exports.updateUserLocation = 'UPDATE ssi_user SET location_depth1=?, location_depth2=?, location_depth3=? WHERE kakao_user_number=?'
+exports.selectTotalPost = 'SELECT *, (SELECT IF (EXISTS (SELECT like_seq FROM ssi_post_like AS b WHERE b.liked_user_id =? AND a.post_seq = b.post_seq), 1, 0) AS likeNy) FROM ssi_post_list as a'
+exports.updateCurrentMusic = 'UPDATE ssi_user SET current_music_uri=? WHERE kakao_user_number=?'
