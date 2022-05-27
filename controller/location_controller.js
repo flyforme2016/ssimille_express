@@ -10,7 +10,7 @@ exports.updateUserLocation = async (req, res) => {
             req.body['params']['locationDepth3'],
             req.body['params']['key'],
         ]
-        await promiseMysql.updateUserLocation(myQurey.updateUserLocation, data)
+        await promiseMysql.updateData(myQurey.updateUserLocation, data)
         res.send('Success updateUserLocation')
     } catch (error) {
         console.log('Failed updateUserLocation: ', error)

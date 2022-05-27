@@ -6,3 +6,4 @@ exports.editUserProfile = 'UPDATE ssi_user AS a LEFT JOIN ssi_user_hash_tag AS b
 exports.updateUserLocation = 'UPDATE ssi_user SET location_depth1=?, location_depth2=?, location_depth3=? WHERE kakao_user_number=?'
 exports.selectTotalPost = 'SELECT *, (SELECT IF (EXISTS (SELECT like_seq FROM ssi_post_like AS b WHERE b.liked_user_id =? AND a.post_seq = b.post_seq), 1, 0) AS likeNy) FROM ssi_post_list as a'
 exports.updateCurrentMusic = 'UPDATE ssi_user SET current_music_uri=? WHERE kakao_user_number=?'
+exports.selectOtherUserCurrentMusic = 'SELECT current_music_uri FROM ssi_user WHERE location_depth3=? AND NOT kakao_user_number =?'

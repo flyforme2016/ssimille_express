@@ -39,25 +39,25 @@ module.exports = {
             con.connection.release()
         }
     },
-    selectUserProfile : async(...args) => {
-        console.log('Enter selectUserProfile')
+    selectData : async(...args) => {
+        console.log('Enter selectData')
         const query = args[0]
-        const value = args[1] //key = userKakaoNumber where문의 조건으로 사용
+        const value = args[1]
         const pool = await poolPromise
         const connection = await pool.getConnection()
         try {
             const result = await connection.query(query, value)
             return result;
         } catch (error) {
-            console.log('Error selectUserProfile: ', error)
+            console.log('Error selectData: ', error)
             connection.rollback()
         }finally{
             console.log('Finally')
             connection.release()
         }
     },
-    editUserProfile : async(...args) => { //args[0] = query, args[1] = data, args[2] =hashTagArr
-        console.log('Enter editUserProfile')
+    updateData : async(...args) => {
+        console.log('Enter updateData')
         const query = args[0]
         const value = args[1]
         const pool = await poolPromise
@@ -65,54 +65,7 @@ module.exports = {
         try{
             await connection.query(query, value)
         }catch (error) {
-            //pool connection이나 connection.query가 실패할 경우 진입
-            console.log('Error editUserProfile :', error)
-            connection.rollback() //쿼리 실패시 혹시 수행 된 부분 작업 이전으로 되돌리기
-        } finally{
-            connection.release() //connection 반환
-        }
-    },
-    
-    updateUserLocation : async(...args) => {
-        console.log('Enter updateUserLocation')
-        const query = args[0]
-        const value = args[1]
-        const pool = await poolPromise
-        const connection = await pool.getConnection()
-        try{
-            await connection.query(query, value)
-        }catch (error) {
-            console.log('Error updateUserLocation :', error)
-            connection.rollback()
-        } finally{
-            connection.release() 
-        }
-    },
-    selectTotalPost : async(...args) => {
-        console.log('Enter selectTotalPost')
-        const query = args[0]
-        const value = args[1]
-        const pool = await poolPromise
-        const connection = await pool.getConnection()
-        try{
-            await connection.query(query, value)
-        }catch (error) {
-            console.log('Error selectTotalPost :', error)
-            connection.rollback() 
-        } finally{
-            connection.release()
-        }
-    },
-    updateCurrentMusic : async(...args) => {
-        console.log('Enter updateCurrentMusic')
-        const query = args[0]
-        const value = args[1]
-        const pool = await poolPromise
-        const connection = await pool.getConnection()
-        try{
-            await connection.query(query, value)
-        }catch (error) {
-            console.log('Error updateCurrentMusic :', error)
+            console.log('Error updateData :', error)
             connection.rollback() 
         } finally{
             connection.release()

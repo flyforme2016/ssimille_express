@@ -10,4 +10,6 @@ router.get('/oauth/callback', function(req, res, next) {
 
 router.post('/updateCurrentMusic', spotifyController.updateCurrentMusic)
 
+router.get('getOtherUserCurrentMusic', spotifyController.selectOtherUserCurrentMusic)
+
 module.exports = router;
