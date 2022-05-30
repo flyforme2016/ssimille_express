@@ -52,6 +52,25 @@ exports.uploadPost = async (req, res) => {
     }
 }
 
+exports.updatePost = async (req, res) => {
+    try {
+        console.log('Enter updatePost')
+        const updatetPostObject = {
+            music_uri : req.body.musicUri,
+            album_image : req.body.albumImage,
+            album_title : req.body.albumTitle,
+            album_artist_name : req.body.albumArtistName,
+            input_text : req.body.inputText,
+            mod_time : Date.now()
+        }
+        const result = await promiseMysql.updateData(myQurey.updatePost, [updatetPostObject, req.body.key, req.body.postNum])
+        console.log('result: ', result)
+        res.json(result);
+    } catch (error) {
+        console.log('Failed updatePost: ', error)
+    }
+}
+
 exports.checkPostLike = async (req, res) => {
     try {
         console.log('Enter checkPostLike')
@@ -81,3 +100,4 @@ exports.uncheckPostLike = async (req, res) => {
         console.log('Failed uncheckPostLike: ', error)
     }
 }
+
