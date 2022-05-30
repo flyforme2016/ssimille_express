@@ -12,6 +12,7 @@ var profileRouter = require('./routes/profile_router');
 var spotifyRouter = require('./routes/spotify_router');
 var locationRouter = require('./routes/location_router');
 var postRouter = require('./routes/post_router');
+var friendRouter = require('./routes/friend_router');
 var app = express();
 
 // view engine setup
@@ -32,6 +33,7 @@ app.use('/spotify', spotifyRouter);
 app.use('/profile', profileRouter);
 app.use('/location', locationRouter);
 app.use('/post', postRouter);
+app.use('/friend', friendRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -22,12 +22,19 @@ module.exports = {
         console.log('Enter initTable')
         const query1 = args[0]      //initUserTable
         const query2 = args[1]      //initUserHashTagTable
-        const value = [args[2], args[3], 'https://ssimille-bucket.s3.ap-northeast-2.amazonaws.com/defaultProfileImg/defaultProfileImg.png', 0, 0, 0] //kakaoUserNumber, defaultProfileImgUrl, friend/post/song count
+        const initTableObject = {
+            kakao_user_number : args[2],
+            nickname : args[3], 
+            profile_image : 'https://ssimille-bucket.s3.ap-northeast-2.amazonaws.com/default/defaultProfileImg.png',
+            friend_count : 0, 
+            post_count : 0, 
+            song_count : 0
+        }
         const pool = await poolPromise
         const con = await pool.getConnection()
         await con.connection.beginTransaction()
         try {
-            await con.connection.query(query1, value) //initUserTable
+            await con.connection.query(query1, initTableObject) //initUserTable
             await con.connection.query(query2, args[2]) //initUserHashTagTable, args[2] = UID
             console.log('Success initTable')
         } catch (error) {
@@ -70,5 +77,35 @@ module.exports = {
         } finally{
             connection.release()
         }
-    }
+    },
+    insertData : async(...args) => {
+        console.log('Enter insertData')
+        const query = args[0]
+        const value = args[1]
+        const pool = await poolPromise
+        const connection = await pool.getConnection()
+        try{
+            await connection.query(query, value)
+        }catch (error) {
+            console.log('Error insertData :', error)
+            connection.rollback() 
+        } finally{
+            connection.release()
+        }
+    },
+    deleteData : async(...args) => {
+        console.log('Enter deleteData')
+        const query = args[0]
+        const value = args[1]
+        const pool = await poolPromise
+        const connection = await pool.getConnection()
+        try{
+            await connection.query(query, value)
+        }catch (error) {
+            console.log('Error deleteData :', error)
+            connection.rollback() 
+        } finally{
+            connection.release()
+        }
+    },
 }
