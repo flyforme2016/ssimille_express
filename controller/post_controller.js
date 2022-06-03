@@ -1,5 +1,6 @@
 const promiseMysql = require('../services/promise-mysql');
 const myQurey = require('../query/query');
+const { upload } = require('../services/multer');
 
 exports.selectTotalPost = async (req, res) =>{
     try {
@@ -31,21 +32,12 @@ exports.selectLocationPost = async (req, res) => {
 
 exports.uploadPost = async (req, res) => {
     try {
+        //진입 여부 확인
         console.log('Enter uploadPost')
-        const insertPostObject = {
-            kakao_user_number : req.body.kakaoUserNumber,
-            del_ny : 0,
-            location_depth1 : req.body.locationDepth1,
-            music_uri : req.body.musicUri,
-            album_title : req.body.albumTitle,
-            album_image : req.body.albumImage,
-            album_artist_name : req.body.albumArtistName,
-            input_text : req.body.inputText,
-            like_count : 0,
-            reg_time : Date.now()
-        }
-        const result = await promiseMysql.insertData(myQurey.insertPost, insertPostObject)
+
+        const result = await promiseMysql.uploadPost(myQurey.insertPost, myQurey.insertPostImgs, req.body)
         console.log('result: ', result)
+
         res.json(result);
     } catch (error) {
         console.log('Failed uploadPost: ', error)

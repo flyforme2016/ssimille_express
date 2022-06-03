@@ -31,19 +31,64 @@ module.exports = {
             song_count : 0
         }
         const pool = await poolPromise
-        const con = await pool.getConnection()
-        await con.connection.beginTransaction()
+        const connection = await pool.getConnection()
+        await connection.beginTransaction()
         try {
-            await con.connection.query(query1, initTableObject) //initUserTable
-            await con.connection.query(query2, args[2]) //initUserHashTagTable, args[2] = UID
+            await connection.query(query1, initTableObject) //initUserTable
+            await connection.query(query2, args[2]) //initUserHashTagTable, args[2] = UID
             console.log('Success initTable')
         } catch (error) {
             console.log('Error initUserTable: ', error)
-            await con.rollback()    //일부 쿼리 실패시 성공한 쿼리까지 rollback
-            con.connection.release()
+            await connection.rollback()    //일부 쿼리 실패시 성공한 쿼리까지 rollback
+            connection.release()
         } finally{
-            await con.commit()      //tansaction이 문제 없을 시 commit에 의해 실제 transaction 수행
-            con.connection.release()
+            await connection.commit()      //tansaction이 문제 없을 시 commit에 의해 실제 transaction 수행
+            connection.release()
+        }
+    },
+    uploadPost : async(...args) =>{
+        console.log('Enter uploadPost')
+        const query1 = args[0]      //insertPost
+        const query2 = args[1]      //insertPostImgs
+        const insertPostObject = {
+            kakao_user_number : args[2].key,
+            del_ny : 0,
+            location_depth1 : args[2].locationDepth1,
+            eng_location_depth1: args[2].engLocationDepth1,
+            music_uri : args[2].musicUri,
+            album_title : args[2].albumTtile,
+            album_image : args[2].albumImg,
+            album_artist_name : args[2].albumArtistName,
+            input_text : args[2].inputText,
+            like_count : 0,
+            reg_time : Date.now()
+        }
+        
+        const pool = await poolPromise
+        const connection = await pool.getConnection()
+        await connection.beginTransaction()
+        try {
+            await connection.query(query1, insertPostObject) //insertPost
+            const result = await connection.query('SELECT LAST_INSERT_ID()');
+            const postSeq = result[0]['LAST_INSERT_ID()']
+            console.log('postSeq[0].LAST_INSERT_ID(): ', result[0]['LAST_INSERT_ID()'])
+            const insertPostImgsObject = {
+                post_seq : postSeq,
+                image1 : args[2].image1,
+                image2 : args[2].image2,
+                image3 : args[2].image3,
+                image4 : args[2].image4,
+                image5 : args[2].image5,
+            }
+            await connection.query(query2, insertPostImgsObject) //insertPostImgs
+            console.log('Success uploadPost')
+        } catch (error) {
+            console.log('Error uploadPost: ', error)
+            await connection.rollback()    //일부 쿼리 실패시 성공한 쿼리까지 rollback
+            connection.release()
+        } finally{
+            await connection.commit()      //tansaction이 문제 없을 시 commit에 의해 실제 transaction 수행
+            connection.release()
         }
     },
     selectData : async(...args) => {

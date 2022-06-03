@@ -4,6 +4,7 @@ require('dotenv').config();
 
 exports.getKakaoToken = async(req)=>{
     console.log('Enter getKakaoToken')
+
     const token = await axios({//token
         method: 'POST',
         url: 'https://kauth.kakao.com/oauth/token',
@@ -16,7 +17,7 @@ exports.getKakaoToken = async(req)=>{
             client_secret : process.env.KAKAO_CLIENT_SECRET,
             redirectUri : process.env.KAKAO_REDIRECT_URI,
             code : req.body.code, //받은 인가 코드
-        })//객체를 string 으로 변환
+        })//객체를 string 으로 변환node app
     })
     console.log('token.data in getKakaoToken(): ', token.data);
     return token.data
