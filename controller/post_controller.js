@@ -1,6 +1,5 @@
 const promiseMysql = require('../services/promise-mysql');
 const myQurey = require('../query/query');
-const { upload } = require('../services/multer');
 
 exports.selectTotalPost = async (req, res) =>{
     try {

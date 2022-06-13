@@ -1,4 +1,4 @@
-exports.insertProfileImg = 'INSERT INTO ssi_user (profile_image) VALUES(?) WHERE kakao_user_number =?'
+exports.updateProfileImg = 'UPDATE ssi_user SET profile_image=? WHERE kakao_user_number=?'
 exports.insertPostImgs = 'INSERT INTO ssi_post_images SET ?'
 exports.initUserTable = 'INSERT INTO ssi_user SET ?'
 exports.initUserHashTagTable = 'INSERT INTO ssi_user_hash_tag(kakao_user_number) VALUES(?)'
