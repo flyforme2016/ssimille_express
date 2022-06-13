@@ -1,13 +1,11 @@
 const promiseMysql = require('../services/promise-mysql');
 const myQurey = require('../query/query');
-const { upload } = require('../services/multer');
 
 exports.selectTotalPost = async (req, res) =>{
     try {
         console.log('Enter selectTotalPost')
         const data = req.query.key
         const result = await promiseMysql.selectData(myQurey.selectTotalPost, data)
-        console.log('result: ', result)
         res.json(result);
     } catch (error) {
         console.log('Failed selectTotalPost: ', error)

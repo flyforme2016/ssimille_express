@@ -32,3 +32,14 @@ exports.editProfile = async (req, res) => {
         console.log('Failed editProfile: ', error)
     }
 }
+
+exports.updateProfileImg = async (req, res) => {
+    try{ 
+        console.log('Enter updateProfileImg')
+        const data = [req.body.profileImg, req.body.key]
+        await promiseMysql.updateData(myQurey.updateProfileImg, data)
+        res.send('Success updateProfileImg')
+    }catch(error){
+        console.log('Failed updateProfileImg: ', error)
+    }
+}

@@ -19,7 +19,7 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(logger('dev'));
+app.use(logger('common'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -37,19 +37,23 @@ app.use('/friend', friendRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
+  console.log('Enter frist error handler')
   next(createError(404));
 });
-
 //모든 IP에서 지정 port 3000번으로 대기
 const port =3000;
-app.listen(port, '0.0.0.0', ()=>{console.log(`Listening on port ${port}`)});
+const server = app.listen(port, '0.0.0.0', ()=>{console.log(`Listening on port ${port}`)});
+server.keepAliveTimeout = 10000;
+server.headersTimeout = 10005;
 
 module.exports = app;
 
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
+  console.log('Enter second error handler')
   res.locals.message = err.message;
+  console.log('error message: ', err.message)
   res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page

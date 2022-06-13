@@ -48,6 +48,7 @@ module.exports = {
     },
     uploadPost : async(...args) =>{
         console.log('Enter uploadPost')
+        console.log(new Date().getTime())
         const query1 = args[0]      //insertPost
         const query2 = args[1]      //insertPostImgs
         const insertPostObject = {
@@ -56,12 +57,12 @@ module.exports = {
             location_depth1 : args[2].locationDepth1,
             eng_location_depth1: args[2].engLocationDepth1,
             music_uri : args[2].musicUri,
-            album_title : args[2].albumTtile,
+            album_title : args[2].albumTitle,
             album_image : args[2].albumImg,
             album_artist_name : args[2].albumArtistName,
             input_text : args[2].inputText,
             like_count : 0,
-            reg_time : Date.now()
+            reg_time : new Date().getTime()
         }
         
         const pool = await poolPromise
@@ -69,18 +70,18 @@ module.exports = {
         await connection.beginTransaction()
         try {
             await connection.query(query1, insertPostObject) //insertPost
-            const result = await connection.query('SELECT LAST_INSERT_ID()');
-            const postSeq = result[0]['LAST_INSERT_ID()']
-            console.log('postSeq[0].LAST_INSERT_ID(): ', result[0]['LAST_INSERT_ID()'])
-            const insertPostImgsObject = {
-                post_seq : postSeq,
-                image1 : args[2].image1,
-                image2 : args[2].image2,
-                image3 : args[2].image3,
-                image4 : args[2].image4,
-                image5 : args[2].image5,
-            }
-            await connection.query(query2, insertPostImgsObject) //insertPostImgs
+            // const result = await connection.query('SELECT LAST_INSERT_ID()');
+            // const postSeq = result[0]['LAST_INSERT_ID()']
+            // console.log('postSeq[0].LAST_INSERT_ID(): ', result[0]['LAST_INSERT_ID()'])
+            // const insertPostImgsObject = {
+            //     post_seq : postSeq,
+            //     image1 : args[2].image1,
+            //     image2 : args[2].image2,
+            //     image3 : args[2].image3,
+            //     image4 : args[2].image4,
+            //     image5 : args[2].image5,
+            // }
+            // await connection.query(query2, insertPostImgsObject) //insertPostImgs
             console.log('Success uploadPost')
         } catch (error) {
             console.log('Error uploadPost: ', error)

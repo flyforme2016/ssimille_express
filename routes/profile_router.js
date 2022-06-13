@@ -6,4 +6,6 @@ router.get('/getMyProfile', profileController.getMyProfile);
 
 router.post('/editProfile', profileController.editProfile);
 
+router.post('/updateProfileImg', profileController.updateProfileImg);
+
 module.exports = router;
