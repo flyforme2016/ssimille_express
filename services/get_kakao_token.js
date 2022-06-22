@@ -18,7 +18,8 @@ exports.getKakaoToken = async(req)=>{
             redirectUri : process.env.KAKAO_REDIRECT_URI,
             code : req.body.code, //받은 인가 코드
         })//객체를 string 으로 변환node app
-    })
+    }).then()
+    .catch(error=>{console.log('getKakaoToken error: ', error)})
     console.log('token.data in getKakaoToken(): ', token.data);
     return token.data
 }

@@ -16,58 +16,106 @@ exports.selectTotalPost = async (req, res) =>{
 exports.selectLocationPost = async (req, res) => {
     try {
         console.log('Enter selectLocationPost')
+        console.log('req.query: ', req.query)
         const data = [
             req.query.key,
-            req.query.locationDepth1
+            req.query.regionDepth1
         ]
         const result = await promiseMysql.selectData(myQurey.selectLocationPost, data)
-        console.log('result: ', result)
         res.json(result);
     } catch (error) {
         console.log('Failed selectLocationPost: ', error)
     }
 }
 
+exports.selectMyPost = async (req, res) => {
+    try {
+        console.log('Enter selectMyPost')
+        console.log('req.query: ', req.query)
+        const data = [
+            req.query.key,
+            req.query.key,
+        ]
+        const result = await promiseMysql.selectData(myQurey.selectMyPost, data)
+        res.json(result);
+    } catch (error) {
+        console.log('Failed selectMyPost: ', error)
+    }
+}
+
 exports.uploadPost = async (req, res) => {
     try {
-        //진입 여부 확인
         console.log('Enter uploadPost')
-
+        console.log('req.body: ', req.body)
         const result = await promiseMysql.uploadPost(myQurey.insertPost, myQurey.insertPostImgs, req.body)
-        console.log('result: ', result)
-
         res.json(result);
     } catch (error) {
         console.log('Failed uploadPost: ', error)
     }
 }
 
-exports.checkPostLike = async (req, res) => {
+exports.deletePost = async (req, res) => {
     try {
-        console.log('Enter checkPostLike')
-        const data = [
-            req.body.postNum,
-            req.body.key
-        ]
-        const result = await promiseMysql.insertData(myQurey.insertPostLikedUser, data)
-        console.log('result: ', result)
-        res.json(result);
+        console.log('Enter deletePost')
+        await promiseMysql.deleteData(myQurey.deletePost, req.query.postSeq)
+        res.send("Delete Successful");
     } catch (error) {
-        console.log('Failed checkPostLike: ', error)
+        console.log('Failed deletePost: ', error)
     }
 }
 
-exports.uncheckPostLike = async (req, res) => {
+exports.selectPostComments = async (req, res) => {
     try {
-        console.log('Enter uncheckPostLike')
-        const data = [
-            req.body.postNum,
-            req.body.key
-        ]
-        const result = await promiseMysql.deleteData(myQurey.deletePostLikedUser, data)
-        console.log('result: ', result)
+        console.log('req.query.postSeq: ', req.query.postSeq);
+        console.log('Enter selectPostComments')
+        const result = await promiseMysql.selectData(myQurey.selectPostComments, req.query.postSeq)
         res.json(result);
     } catch (error) {
-        console.log('Failed uncheckPostLike: ', error)
+        console.log('Failed selectPostComments: ', error)
+    }
+}
+
+exports.insertPostComment = async (req, res) => {
+    try {
+        console.log('Enter insertPostComment')
+        console.log('req.body: ', req.body);
+        const dateTime = new Date(+new Date() + 3240 * 10000).toISOString().replace("T", " ").replace(/\..*/, '');
+        const insertPostCommentObject = {
+            post_seq : req.body.postSeq,
+            kakao_user_number : req.body.key,
+            del_ny : 0,
+            parent : req.body.parent,
+            comment : req.body.comment,
+            reg_time : dateTime
+        }
+        const result = await promiseMysql.insertData(myQurey.insertPostComments, insertPostCommentObject)
+        res.json(result);
+    } catch (error) {
+        console.log('Failed insertPostComment: ', error)
+    }
+}
+
+exports.postLike = async (req, res) => {
+    try {
+        console.log('Enter PostLike')
+        console.log('req.body: ', req.body)
+        const data = [
+            req.body.postSeq,
+            req.body.key,
+        ]
+        if(req.body.check === true) {
+            console.log('좋아요')
+            const result = await promiseMysql.postLikeTransaction(myQurey.insertPostLikedUser, myQurey.increaseLikeCount, data)
+            console.log('result: ', result)
+            res.json(result);
+        }
+        else if (req.body.check === false){
+            console.log('좋아요 취소')
+            const result = await promiseMysql.postLikeTransaction(myQurey.deletePostLikedUser, myQurey.decreaseLikeCount, data)
+            console.log('result: ', result)
+            res.json(result);
+        }
+    } catch (error) {
+        console.log('Failed PostLike: ', error)
     }
 }
