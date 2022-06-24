@@ -14,4 +14,6 @@ router.get('/getPostLikedUserList', profileController.getPostLikedUserList);
 
 router.post('/updateUserRegion', profileController.updateUserRegion);
 
+router.delete('/removeFavoriteSong', profileController.removeFavoriteSong)
+
 module.exports = router;

@@ -65,6 +65,20 @@ exports.addFavoriteSong = async (req, res) => {
     }
 }
 
+exports.removeFavoriteSong = async (req, res) => {
+    try{ 
+        console.log('Enter removeFavoriteSong')
+        console.log('removeFavoriteSong req: ', req)
+        console.log('removeFavoriteSong req.body: ', req.body)
+        console.log('removeFavoriteSong req.query: ', req.query)
+        console.log('removeFavoriteSong req.params: ', req.params)
+        await promiseMysql.deleteData(myQurey.deleteFavoriteSong, req.body.favoriteSongSeq)
+        
+    }catch(error){
+        console.log('Failed removeFavoriteSong: ', error)
+    }
+}
+
 exports.getPostLikedUserList = async (req, res) => {
     try{ 
         console.log('Enter getPostLikedUserList')
