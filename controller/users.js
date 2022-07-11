@@ -13,6 +13,18 @@ exports.getMyProfile = async (req, res) => {
     }
 }
 
+exports.getGenreMatrix = async (req, res) => {
+    try{ 
+        console.log('Enter getGenreMatrix')
+        const result = await promiseMysql.selectData(myQurey.selectGenreMatrix, req.query.key)
+        console.log('result: ', result)
+        res.json(result[0]);
+        
+    }catch(error){
+        console.log('Failed getGenreMatrix: ', error)
+    }
+}
+
 exports.editProfile = async (req, res) => {
     try{ 
         console.log('Enter editProfile')
@@ -20,6 +32,7 @@ exports.editProfile = async (req, res) => {
             nickname : req.body.nickname,
             profile_image : req.body.profileImg,
             profile_music_uri : req.body.profileMusicUri,
+            artist_uri : req.body.artistUri,
             album_artist_name: req.body.albumArtistName,
             album_title: req.body.albumTitle,
             album_image: req.body.albumImage,
@@ -30,7 +43,8 @@ exports.editProfile = async (req, res) => {
             tag5_cd : req.body.hashTag[4],
         }
         await promiseMysql.updateData(myQurey.updateUserProfile, [dataObject, req.body.key])
-        res.send('Success editProfile')
+        const result = await promiseMysql.selectData(myQurey.selectUserProfile, req.body.key)
+        res.json(result[0]);
     }catch(error){
         console.log('Failed editProfile: ', error)
     }
@@ -50,32 +64,54 @@ exports.getFavoriteSongList = async (req, res) => {
 exports.addFavoriteSong = async (req, res) => {
     try{ 
         console.log('Enter addFavoriteSong')
+        console.log('req.body: ', req.body)
         const addFavoriteSongObject = {
             music_uri : req.body.musicUri,
+            artist_uri : req.body.artistUri,
             album_artist_name : req.body.albumArtistName,
             album_title : req.body.albumTitle,
             album_image : req.body.albumImg,
             kakao_user_number : req.body.key,
         }
-        await promiseMysql.insertData(myQurey.insertFavoriteSong, addFavoriteSongObject)
+        const data = [
+            addFavoriteSongObject,
+            req.body.key,
+        ]
+        await promiseMysql.updateFavoriteSong(myQurey.insertFavoriteSong, myQurey.increaseSongCount, data)
         
     }catch(error){
         console.log('Failed addFavoriteSong: ', error)
-        res.send('이미 등록된 노래입니다.')
+        res.send('error')
     }
 }
 
 exports.removeFavoriteSong = async (req, res) => {
     try{ 
         console.log('Enter removeFavoriteSong')
-        console.log('removeFavoriteSong req: ', req)
-        console.log('removeFavoriteSong req.body: ', req.body)
-        console.log('removeFavoriteSong req.query: ', req.query)
-        console.log('removeFavoriteSong req.params: ', req.params)
-        await promiseMysql.deleteData(myQurey.deleteFavoriteSong, req.body.favoriteSongSeq)
+        console.log('req.body: ', req.body)
+        const data = [
+            req.body.favoriteSongSeq,
+            req.body.key,
+        ]
+        await promiseMysql.updateFavoriteSong(myQurey.deleteFavoriteSong, myQurey.decreaseSongCount, data)
         
     }catch(error){
         console.log('Failed removeFavoriteSong: ', error)
+    }
+}
+
+exports.updateGenreMatrix = async (req, res) => {
+    try{ 
+        console.log('Enter updateGenreMatrix')
+        console.log('req.body: ', req.body)
+        const data = [
+            req.body.genreMatrixObj,
+            req.body.key,
+        ]
+        await promiseMysql.updateData(myQurey.updateGenreMatrix, data)
+        
+    }catch(error){
+        console.log('Failed updateGenreMatrix: ', error)
     }
 }
 
@@ -94,8 +130,6 @@ exports.getPostLikedUserList = async (req, res) => {
 exports.updateUserRegion = async (req, res) => {
     try{ 
         console.log('Enter updateUserRegion')
-        console.log('regionCode: ', req.body.regionCode)
-        console.log('typeof regionCode: ', typeof req.body.regionCode)
         const data = [
             req.body.regionCode,
             req.body.key,

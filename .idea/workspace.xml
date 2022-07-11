@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89eb7784-131d-41ff-9608-14999b9a75e5" name="Changes" comment="06.22 deletePost">
+    <list default="true" id="89eb7784-131d-41ff-9608-14999b9a75e5" name="Changes" comment="07.11 Restful api naming">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/friend_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/friend_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/profile_controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/profile_controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/query/query.js" beforeDir="false" afterPath="$PROJECT_DIR$/query/query.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/friend_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/friend_router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/profile_router.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/profile_router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/kakao.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/kakao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/kakaoApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/kakaoApi.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655901988074</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="06.24 Complete follower/following">
+      <created>1656057154921</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656057154921</updated>
+    </task>
+    <task id="LOCAL-00014" summary="07.11 Restful api naming">
+      <created>1657529616038</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657529616038</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +172,8 @@
     <MESSAGE value="06.13 Change keep alive time" />
     <MESSAGE value="06.15 multer-s3-transform" />
     <MESSAGE value="06.22 deletePost" />
-    <option name="LAST_COMMIT_MESSAGE" value="06.22 deletePost" />
+    <MESSAGE value="06.24 Complete follower/following" />
+    <MESSAGE value="07.11 Restful api naming" />
+    <option name="LAST_COMMIT_MESSAGE" value="07.11 Restful api naming" />
   </component>
 </project>
