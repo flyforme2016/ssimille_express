@@ -32,7 +32,7 @@ exports.addFriend = async (req, res) => {
             req.body.myUid,
             req.body.otherUid
         ]
-        await promiseMysql.insertData(myQurey.insertFriend, data)
+        await promiseMysql.updateFriend(myQurey.insertFriend, myQurey.increaseFriendCount, data)
         res.send('Success add friend')
     } catch (error) {
         console.log('Failed addFriend: ', error)
@@ -48,7 +48,7 @@ exports.removeFriend = async (req, res) => {
             req.query.myUid,
             req.query.otherUid
         ]
-        await promiseMysql.deleteData(myQurey.deleteFriend, data)
+        await promiseMysql.updateFriend(myQurey.deleteFriend, myQurey.decreaseFriendCount, data)
         res.send('Success remove  friend')
     } catch (error) {
         console.log('Failed removeFriend: ', error)
