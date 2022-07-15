@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89eb7784-131d-41ff-9608-14999b9a75e5" name="Changes" comment="07.11 Restful api naming">
+    <list default="true" id="89eb7784-131d-41ff-9608-14999b9a75e5" name="Changes" comment="06.24 Complete follower/following">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/kakao.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/kakao.js" afterDir="false" />
@@ -148,6 +149,14 @@
       <updated>1657529616038</updated>
     </task>
     <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00013" summary="06.24 Complete follower/following">
+      <created>1656057154921</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656057154921</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,5 +184,7 @@
     <MESSAGE value="06.24 Complete follower/following" />
     <MESSAGE value="07.11 Restful api naming" />
     <option name="LAST_COMMIT_MESSAGE" value="07.11 Restful api naming" />
+    <MESSAGE value="06.24 Complete follower/following" />
+    <option name="LAST_COMMIT_MESSAGE" value="06.24 Complete follower/following" />
   </component>
 </project>
