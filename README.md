@@ -5,7 +5,7 @@
 따라서 음악이라는 요소에 집중한 SNS 어플리케이션을 만들고자 했습니다.
 
 ## ERD
-<img src="https://user-images.githubusercontent.com/86703264/197113223-b1aed3ed-f795-4b27-8a34-1229fbd8b0d0.png" width="600">
+<img src="https://user-images.githubusercontent.com/86703264/197113223-b1aed3ed-f795-4b27-8a34-1229fbd8b0d0.png" width="700">
 
 - <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">8.0.28
 - <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> 16.14.2
