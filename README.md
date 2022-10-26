@@ -30,5 +30,16 @@
 
 <img src="https://user-images.githubusercontent.com/86703264/197922174-c2cf6706-cfc2-485c-b71d-8e5d4d9a32a9.png" width="700">
 
+## API 설계
+
+<img src="https://user-images.githubusercontent.com/86703264/197934947-7b06b388-9eac-49dd-aa2b-63da66628903.png" width="700">
+
+<img src="https://user-images.githubusercontent.com/86703264/197935006-520b737a-c809-43be-beaa-7e1f17e19b8d.png" width="700">
+
+<img src="https://user-images.githubusercontent.com/86703264/197935057-8badcc33-4c81-40cd-a481-627b0886d11c.png" width="700">
+
+<img src="https://user-images.githubusercontent.com/86703264/197935130-3e62030e-7e1a-4e69-b833-866821c335d7.png" width="700">
+
+
 
 
