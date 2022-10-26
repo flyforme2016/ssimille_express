@@ -11,7 +11,7 @@
 - <img src="https://img.shields.io/badge/Amazon S3-569A31?style=for-the-badge&logo=Amazon S3&logoColor=white">
 - <img src="https://img.shields.io/badge/PM2-2B037A?style=for-the-badge&logo=PM2&logoColor=white">
 
-## DB 설계
+## ⚙DB 설계
 <img src="https://user-images.githubusercontent.com/86703264/197124818-9101ca37-ec8f-454f-bf95-cd745eef6337.png" width="800">
 
 <img src="https://user-images.githubusercontent.com/86703264/197920051-58716275-234f-45c1-9a70-eb9e89686fe5.png" width="700">
@@ -30,7 +30,7 @@
 
 <img src="https://user-images.githubusercontent.com/86703264/197922174-c2cf6706-cfc2-485c-b71d-8e5d4d9a32a9.png" width="700">
 
-## API 설계
+## ⚙API 설계
 
 <img src="https://user-images.githubusercontent.com/86703264/197934947-7b06b388-9eac-49dd-aa2b-63da66628903.png" width="700">
 
