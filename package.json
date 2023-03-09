@@ -20,7 +20,8 @@
     "nodemon": "^2.0.15",
     "promise-mysql": "^5.1.0",
     "pug": "^2.0.4",
-    "sharp": "^0.30.6"
+    "sharp": "^0.30.6",
+    "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
     "dotenv": "^16.0.0"

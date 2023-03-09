@@ -3,8 +3,6 @@ const qs = require("qs");
 require("dotenv").config();
 
 exports.kakaoApi = async (req) => {
-  console.log("Enter getKakaoToken");
-
   //oauth code로 accessToken 발급받기
   const token = await axios({
     method: "POST",
@@ -21,9 +19,7 @@ exports.kakaoApi = async (req) => {
     }), //객체를 string 으로 변환node app
   })
     .then()
-    .catch((error) => {
-      console.log("getKakaoToken error: ", error);
-    });
+    .catch((error) => {});
 
   //accessToken으로 kakaoUid 발급받기
   const userInfo = await axios({

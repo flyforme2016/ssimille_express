@@ -10,6 +10,7 @@ var s3Router = require("./routes/s3");
 var kakaoRouter = require("./routes/kakao");
 var postRouter = require("./routes/post");
 var friendRouter = require("./routes/friend");
+var spotifyRouter = require("./routes/spotify");
 var app = express();
 
 // view engine setup
@@ -28,17 +29,15 @@ app.use("/kakao", kakaoRouter);
 app.use("/post", postRouter);
 app.use("/s3", s3Router);
 app.use("/friend", friendRouter);
+app.use("/spotify", spotifyRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  console.log("Enter frist error handler");
   next(createError(404));
 });
 //모든 IP에서 지정 port 3000번으로 대기
 const port = 3000;
-const server = app.listen(port, "0.0.0.0", () => {
-  console.log(`Listening on port ${port}`);
-});
+const server = app.listen(port, "0.0.0.0", () => {});
 server.keepAliveTimeout = 10000;
 server.headersTimeout = 10005;
 
