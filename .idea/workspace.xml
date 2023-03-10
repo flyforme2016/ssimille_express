@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="89eb7784-131d-41ff-9608-14999b9a75e5" name="Changes" comment="07.11 Restful api naming">
+    <list default="true" id="89eb7784-131d-41ff-9608-14999b9a75e5" name="Changes" comment="06.24 Complete follower/following">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/kakao.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/kakao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/kakaoApi.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/kakaoApi.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="gijeong" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="gijeong" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="29jFg6Z5DcABKWZBADL1HOxzP2b" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Ssimille2" />
+    <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="89eb7784-131d-41ff-9608-14999b9a75e5" name="Changes" comment="" />
+      <created>1653618695936</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653618695936</updated>
+    </task>
+    <task id="LOCAL-00001" summary="05.27 Modify mysql-promise functions">
+      <created>1653618763535</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1653618763535</updated>
+    </task>
+    <task id="LOCAL-00002" summary="05.30 Modify Query">
+      <created>1653895416249</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1653895416249</updated>
+    </task>
+    <task id="LOCAL-00003" summary="05.30 Master merge from gijeong branch">
+      <created>1653895563147</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653895563147</updated>
+    </task>
+    <task id="LOCAL-00004" summary="05.30 Query optimize">
+      <created>1653907344795</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653907344795</updated>
+    </task>
+    <task id="LOCAL-00005" summary="05.31 selectPost modify : return with postImage">
+      <created>1653974437192</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653974437193</updated>
+    </task>
+    <task id="LOCAL-00006" summary="05.31 selectPost modify : return with postImage">
+      <created>1653974483637</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653974483637</updated>
+    </task>
+    <task id="LOCAL-00007" summary="05.31 selectPost modify : return with postImage">
+      <created>1653974506425</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1653974506425</updated>
+    </task>
+    <task id="LOCAL-00008" summary="06.13 Success uploadPost and friendList">
+      <created>1654223847733</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1654223847733</updated>
+    </task>
+    <task id="LOCAL-00009" summary="06.13 Change keep alive time">
+      <created>1655088382853</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655088382853</updated>
+    </task>
+    <task id="LOCAL-00010" summary="06.13 Change keep alive time">
+      <created>1655088390952</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1655088390952</updated>
+    </task>
+    <task id="LOCAL-00011" summary="06.15 multer-s3-transform">
+      <created>1655262155812</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1655262155813</updated>
+    </task>
+    <task id="LOCAL-00012" summary="06.22 deletePost">
+      <created>1655901988070</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1655901988074</updated>
+    </task>
+    <task id="LOCAL-00013" summary="06.24 Complete follower/following">
+      <created>1656057154921</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656057154921</updated>
+    </task>
+    <task id="LOCAL-00014" summary="07.11 Restful api naming">
+      <created>1657529616038</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1657529616038</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00013" summary="06.24 Complete follower/following">
+      <created>1656057154921</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1656057154921</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="05.27 Modify mysql-promise functions" />
+    <MESSAGE value="05.30 Modify Query" />
+    <MESSAGE value="05.30 Master merge from gijeong branch" />
+    <MESSAGE value="05.30 Query optimize" />
+    <MESSAGE value="05.31 selectPost modify : return with postImage" />
+    <MESSAGE value="06.13 Success uploadPost and friendList" />
+    <MESSAGE value="06.13 Change keep alive time" />
+    <MESSAGE value="06.15 multer-s3-transform" />
+    <MESSAGE value="06.22 deletePost" />
+    <MESSAGE value="06.24 Complete follower/following" />
+    <MESSAGE value="07.11 Restful api naming" />
+    <option name="LAST_COMMIT_MESSAGE" value="07.11 Restful api naming" />
+    <MESSAGE value="06.24 Complete follower/following" />
+    <option name="LAST_COMMIT_MESSAGE" value="06.24 Complete follower/following" />
+  </component>
+</project>

@@ -1,5 +1,6 @@
 const multer = require('multer');
-const multerS3 = require('multer-s3');
+const multerS3 = require('multer-s3-transform');
+const sharp = require("sharp");
 const s3 = require('../config/s3_config');
 
 const upload = multer ({
@@ -8,10 +9,17 @@ const upload = multer ({
       bucket: "ssimille-bucket",
       contentType: multerS3.AUTO_CONTENT_TYPE,
       acl: 'public-read',
-      key: (req, file, cb) => {
-        //file의 fieldname으로 S3에 저장될 폴더 경로 지정
-        cb(null, `${file.fieldname}/${Date.now()}_${file.originalname}`);
-      },
+      shouldTransform: true,
+      transforms: [{
+        key: (req, file, cb) => {
+          cb(null, `${file.fieldname}/${Date.now()}_${file.originalname}`);
+        },
+        transform: function(req, file, cb) {
+            //Perform desired transformations
+            //sharp
+            cb(null, sharp().toFormat("jpeg", { mozjpeg: true }));
+        }
+      }]
     }),
   })
 
